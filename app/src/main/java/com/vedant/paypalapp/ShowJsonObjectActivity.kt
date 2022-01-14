@@ -22,11 +22,10 @@ class ShowJsonObjectActivity : AppCompatActivity() {
 
             val requestQ: RequestQueue = Volley.newRequestQueue(this@ShowJsonObjectActivity)
              val jsonOR = JsonObjectRequest(
-                 Request.Method.GET, productURL,null , Response.Listener
-                 {response->
+                 Request.Method.GET, productURL,null , { response->
                      textView3.text = response.getString("name")
                      textView4.text = response.getInt("price").toString()
-                 },Response.ErrorListener {error->  textView.text = error.message })
+                 }, { error->  textView.text = error.message })
             requestQ.add(jsonOR)
         }
     }
