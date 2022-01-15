@@ -13,7 +13,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
-            android:name=".DownloadingImageActivity"
+            android:name=".RVActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,10 +22,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".showAllJsonFiles"
+            android:name=".DownloadingImageActivity"
             android:exported="true">
 
         </activity>
+        <activity
+            android:name=".showAllJsonFiles"
+            android:exported="true" />
         <activity
             android:name=".ShowJsonObjectActivity"
             android:exported="true" />
