@@ -1,10 +1,10 @@
 package com.vedant.paypalapp.mainFiles
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
-import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
 import com.vedant.paypalapp.R
@@ -23,13 +23,23 @@ class HomeScreen : AppCompatActivity() {
                 brandList.add(response.getJSONObject(jsonObject).getString("brand"))
             }
             val brandListAdapter =
-                ArrayAdapter(this@HomeScreen,R.layout.brand_text_view, brandList);
+                ArrayAdapter(this@HomeScreen, R.layout.brand_text_view, brandList)
             brand_listview.adapter = brandListAdapter
 
 
-        }, { });
+        }, { })
 
         requestQ.add(jsonAR)
+
+        brand_listview.setOnItemClickListener { parent, view, position, id ->
+
+            val tappedBrand = brandList[position]
+
+            val intent = Intent(this@HomeScreen, FetchProductActivity::class.java)
+            intent.putExtra("BRAND", tappedBrand)
+            startActivity(intent)
+
+        }
     }
 
 }
