@@ -1,38 +1,45 @@
 package com.vedant.paypalapp.mainFiles
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import com.vedant.paypalapp.sampleRevise.Eproduct
-import kotlinx.android.synthetic.main.rv_row.view.txtId
-import kotlinx.android.synthetic.main.rv_row.view.txtName
-import kotlinx.android.synthetic.main.rv_row.view.txtPrice
+import com.vedant.paypalapp.R
 import kotlinx.android.synthetic.main.viewholder_product.view.*
 
-class Eproductadapter(var context: Context, var arrayList: ArrayList<Eproduct>) : RecyclerView
+class Eproductadapter(
+    var context: Context,
+    var arrayList: ArrayList<com.vedant.paypalapp.mainFiles.Eproduct>
+) : RecyclerView
 .Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        TODO("Not yet implemented")
+        val productView =
+            LayoutInflater.from(context).inflate(R.layout.viewholder_product, parent, false)
+        return ProductViewHolder(productView)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        (holder as ProductViewHolder).initializeUIComponent(
+            arrayList[position].id, arrayList[position].name,
+            arrayList[position].price, arrayList[position].picture
+        )
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return arrayList.size
     }
 
     inner class ProductViewHolder(pView: View) : RecyclerView.ViewHolder(pView) {
         fun initializeUIComponent(id: Int, name: String, price: Int, image: String) {
-            itemView.txtId.text = id.toString()
-            itemView.txtName.text = name
-            itemView.txtPrice.text = price.toString()
+            itemView.txtIds.text = id.toString()
+            itemView.txtNames.text = name
+            itemView.txtPrices.text = price.toString()
 
-            var picUrl = "http://192.168.117.112/OnlinestoreApp/osimages/"
+
+            var picUrl = "http://192.168.1.100/OnlinestoreApp/osimages/"
             picUrl = picUrl.replace(" ", "%20")
 
             Picasso.get().load(picUrl + image).into(itemView.imgProduct)
