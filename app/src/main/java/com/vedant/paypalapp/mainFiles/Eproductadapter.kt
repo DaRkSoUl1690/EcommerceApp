@@ -1,5 +1,6 @@
 package com.vedant.paypalapp.mainFiles
 
+import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -44,6 +45,13 @@ class Eproductadapter(
 
             Picasso.get().load(picUrl + image).into(itemView.imgProduct)
 
+            itemView.add_products.setOnClickListener {
+
+                Person.addtocartid = id
+                var amountFragment = AmountFragment()
+                var fragmentManager = (itemView.context as Activity).fragmentManager
+                amountFragment.show(fragmentManager, "TAG")
+            }
         }
     }
 }
