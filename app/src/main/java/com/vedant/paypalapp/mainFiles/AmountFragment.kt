@@ -49,7 +49,7 @@ class AmountFragment : DialogFragment() {
         var addtochart = fragmentView.findViewById<Button>(R.id.addtochart)
 
         addtochart.setOnClickListener {
-            var tempUrl = "http://192.168.1.100/OnlinestoreApp/insert_temp_order" +
+            var tempUrl = "http://192.168.10.112/OnlinestoreApp/insert_temp_order" +
                     ".php?email=${Person.email}&product_id=${Person.addtocartid}&amount=" +
                     edtAmmount.text.toString()
 
@@ -57,7 +57,7 @@ class AmountFragment : DialogFragment() {
             val jsonAR = StringRequest(Request.Method.GET, tempUrl, { response ->
 
                 var intent = Intent(activity, CartProductActivity::class.java)
-
+                startActivity(intent)
             }, { })
             requestQ.add(jsonAR)
 

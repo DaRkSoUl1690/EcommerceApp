@@ -58,7 +58,7 @@ class Login_Activity : AppCompatActivity() {
 
         if (edtpass.text.toString() == editconfirmpass.text.toString()) {
             val signUpUrl =
-                "http://192.168.1.100/OnlinestoreApp/join_new_user.php?email=" + edtemail.text.toString() + "&user=" + username.text.toString() +
+                "http://192.168.10.112/OnlinestoreApp/join_new_user.php?email=" + edtemail.text.toString() + "&user=" + username.text.toString() +
                         "&pass=" + edtpass.text.toString()
 
 
@@ -96,7 +96,7 @@ class Login_Activity : AppCompatActivity() {
     }
 
     fun login() {
-        val loginUrl = "http://192.168.1.100/OnlinestoreApp/login_app_user.php?email=" +
+        val loginUrl = "http://192.168.10.112/OnlinestoreApp/login_app_user.php?email=" +
                 edtemail.text.toString() + "&pass=" + edtpass.text.toString()
         val requestQ = Volley.newRequestQueue(this@Login_Activity)
         val stringRequest = StringRequest(Request.Method.GET, loginUrl, { response ->
