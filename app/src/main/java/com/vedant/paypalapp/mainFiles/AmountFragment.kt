@@ -49,7 +49,7 @@ class AmountFragment : DialogFragment() {
         var addtochart = fragmentView.findViewById<Button>(R.id.addtochart)
 
         addtochart.setOnClickListener {
-            var tempUrl = "http://192.168.10.112/OnlinestoreApp/insert_temp_order" +
+            var tempUrl = "http:///192.168.56.112/OnlinestoreApp/insert_temp_order" +
                     ".php?email=${Person.email}&product_id=${Person.addtocartid}&amount=" +
                     edtAmmount.text.toString()
 

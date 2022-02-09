@@ -13,14 +13,19 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
-            android:name=".mainFiles.CartProductActivity"
+            android:name=".mainFiles.FinalizeActivity"
             android:exported="false" />
+        <activity
+            android:name=".mainFiles.CartProductActivity"
+            android:exported="true" />
         <activity
             android:name=".mainFiles.FetchProductActivity"
             android:exported="false" />
         <activity
             android:name=".mainFiles.HomeScreen"
-            android:exported="true"></activity>
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".mainFiles.Login_Activity"
             android:exported="true">

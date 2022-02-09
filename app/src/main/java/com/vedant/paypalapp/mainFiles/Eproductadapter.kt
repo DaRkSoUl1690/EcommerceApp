@@ -40,7 +40,7 @@ class Eproductadapter(
             itemView.txtPrices.text = price.toString()
 
 
-            var picUrl = "http://192.168.10.112/OnlinestoreApp/osimages/"
+            var picUrl = "http:///192.168.56.112/OnlinestoreApp/osimages/"
             picUrl = picUrl.replace(" ", "%20")
 
             Picasso.get().load(picUrl + image).into(itemView.imgProduct)
