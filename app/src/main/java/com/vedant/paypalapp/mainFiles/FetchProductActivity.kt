@@ -17,7 +17,7 @@ class FetchProductActivity : AppCompatActivity() {
         val selectedProduct = intent.getStringExtra("BRAND")
         val productList = ArrayList<Eproduct>()
         val productUrl =
-            "http:///192.168.56.112/OnlinestoreApp/fetch_eproducts.php?brand=$selectedProduct"
+            "http:///192.168.35.112/OnlinestoreApp/fetch_eproducts.php?brand=$selectedProduct"
         val requestQ = Volley.newRequestQueue(this@FetchProductActivity)
         val jsonAR = JsonArrayRequest(Request.Method.GET, productUrl, null, { response ->
             for (productJO in 0.until(response.length())) {

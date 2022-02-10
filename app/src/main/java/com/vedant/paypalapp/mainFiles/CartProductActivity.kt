@@ -18,7 +18,7 @@ class CartProductActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart_product)
 
-        var cartproductUrl = "http://192.168.56.112/OnlinestoreApp/fetch_temp_order" +
+        var cartproductUrl = "http://192.168.35.112/OnlinestoreApp/fetch_temp_order" +
                 ".php?email=${Person.email}"
         var carproductlist = ArrayList<String>()
         val requestQ = Volley.newRequestQueue(this@CartProductActivity)
@@ -53,7 +53,7 @@ class CartProductActivity : AppCompatActivity() {
 
         }
         if (item.itemId == R.id.declineorder) {
-            val deleteUrl = "http://192.168.56.112/OnlinestoreApp/decline_order.php?email=" +
+            val deleteUrl = "http://192.168.35.112/OnlinestoreApp/decline_order.php?email=" +
                     Person.email
 
             val requestQ = Volley.newRequestQueue(this@CartProductActivity)
@@ -64,7 +64,7 @@ class CartProductActivity : AppCompatActivity() {
             requestQ.add(jsonAR)
         }
         if (item.itemId == R.id.verifyItem) {
-            val verifyUrl = "http://192.168.56.112/OnlinestoreApp/verify_orders.php?email=" +
+            val verifyUrl = "http://192.168.35.112/OnlinestoreApp/verify_orders.php?email=" +
                     Person.email
 
             val requestQ = Volley.newRequestQueue(this@CartProductActivity)
